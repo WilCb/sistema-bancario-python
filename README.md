@@ -40,7 +40,7 @@ Todas as operações são feitas via terminal/console, com interface simples e i
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/seu-usuario/sistema-bancario-python.git
+   git clone https://github.com/WilCb/sistema-bancario-python.git
    ```
 
 2. Acesse a pasta do projeto:
