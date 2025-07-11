@@ -45,9 +45,9 @@ def criar_usuario(lista: List[Dict[str, str]]) -> List[Dict[str, Any]]:
         input("Data de Nascimento(Somente número, ex: DDMMYYYY): ")
     )
     meu_cpf: str = input("CPF: ")
-    # cpf_sem_mascara: str = meu_cpf.replace(
-    #     '.', '').replace('-', '')
-    # cpf_validacao: bool = cpf.validate(cpf_sem_mascara)
+    cpf_sem_mascara: str = meu_cpf.replace(
+        '.', '').replace('-', '')
+    cpf_validacao: bool = cpf.validate(cpf_sem_mascara)
     cpf_encontrado: bool = False
 
     for usuario in lista:
@@ -58,8 +58,8 @@ def criar_usuario(lista: List[Dict[str, str]]) -> List[Dict[str, Any]]:
     if cpf_encontrado:
         raise ValueError("CPF já cadastrado!")
 
-    # elif not cpf_validacao:
-    #     raise ValueError("CPF inválido!")
+    elif not cpf_validacao:
+        raise ValueError("CPF inválido!")
 
     logradouro: str = input("Logradouro: ")
     numero: str = input("Número: ")
@@ -77,7 +77,7 @@ def criar_usuario(lista: List[Dict[str, str]]) -> List[Dict[str, Any]]:
     novo_usuario: Dict[str, Any] = {
         "nome": nome,
         "data_nascimento": str(data_nascimento),
-        "cpf": meu_cpf,
+        "cpf": cpf_sem_mascara,
         "endereco": endereco
     }
 
@@ -253,6 +253,7 @@ def main():
                         input("Valor do deposito: ")
                     )
                     depositar(deposito, extrato, contas)
+                    exibe_mensagem_e_volta_menu("Deposito realizado com sucesso!")
                 except ValueError as e:
                     exibe_mensagem_e_volta_menu(
                         f"Erro: {e}. Pressione Enter para voltar")
