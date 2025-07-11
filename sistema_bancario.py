@@ -40,10 +40,6 @@ def limparTela() -> None:
 def criar_usuario(lista: List[Dict[str, str]]) -> List[Dict[str, Any]]:
     limparTela()
     print(f"{"=" * 10} Nova conta {"=" * 10}")
-    nome: str = input("Nome: ")
-    data_nascimento: int = int(
-        input("Data de Nascimento(Somente número, ex: DDMMYYYY): ")
-    )
     meu_cpf: str = input("CPF: ")
     cpf_sem_mascara: str = meu_cpf.replace(
         '.', '').replace('-', '')
@@ -60,6 +56,11 @@ def criar_usuario(lista: List[Dict[str, str]]) -> List[Dict[str, Any]]:
 
     elif not cpf_validacao:
         raise ValueError("CPF inválido!")
+    nome: str = input("Nome: ")
+    data_nascimento: int = int(
+        input("Data de Nascimento(Somente número, ex: DDMMYYYY): ")
+    )
+    
 
     logradouro: str = input("Logradouro: ")
     numero: str = input("Número: ")
